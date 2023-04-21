@@ -1,11 +1,10 @@
 #include "mujoco_rgbd_camera.hpp"
-#include "window_operation.hpp"
 
 #include <chrono>
 #include <thread>
 #include <mutex>
 
-mjUI ui;
+// mjUI ui;
 
 // MuJoCo basic data structures
 mjModel* model = NULL;
@@ -186,6 +185,8 @@ void RGBD_sensor(mjModel* model, mjData* data)
     glfwPollEvents();
 
     std::this_thread::sleep_for(std::chrono::milliseconds(30));
+
+    // Do not forget to release buffer to avoid memory leak
     mj_RGBD.release_buffer();
   }
 
@@ -202,8 +203,8 @@ void pointcloud_view()
   {
     mtx.lock();
     viewer->updatePointCloud(color_cloud, "cloud");
-    viewer->spinOnce(1, true);
     mtx.unlock();
+    viewer->spinOnce(1, true);
     std::this_thread::sleep_for(std::chrono::milliseconds(30));
   }
 }
@@ -212,7 +213,6 @@ int main(int argc, char** argv)
 {
   char error[1000] = "Fail to load model";
   const char* file = "/home/yinghao/.mujoco/mujoco210/camera_test/data/camera_test.xml";
-  // const char* file = "/home/yinghao/.mujoco/mujoco210/model/particle.xml";
   model = mj_loadXML(file, 0, error, 1000);
   
   if (!model)
