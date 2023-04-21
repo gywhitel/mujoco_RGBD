@@ -1,0 +1,32 @@
+Mon Apr 17 15:03:30 2023
+ERROR: Load model error.
+
+
+Mon Apr 17 16:21:31 2023
+ERROR: Load model error: XML Error: Schema violation: unique sub-element 'rgba' found 2 time(s)
+
+Element 'visual', line 6, column 3
+
+
+Mon Apr 17 16:21:54 2023
+ERROR: Load model error: XML Error: Schema violation: unique sub-element 'rgba' found 2 time(s)
+
+Element 'visual', line 6, column 3
+
+
+Mon Apr 17 16:53:00 2023
+ERROR: Load model error: XML parse error at line 37, column 5:
+Error reading end tag.
+
+
+Mon Apr 17 16:53:45 2023
+ERROR: Load model error: XML parse error at line 37, column 5:
+Error reading end tag.
+
+
+Mon Apr 17 17:03:08 2023
+ERROR: Load model error: XML Error: Schema violation: unrecognized element
+
+Element 'geom', line 24, column 5
+
+
